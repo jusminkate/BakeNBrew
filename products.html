@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BakeNBrew Cost | Made Goods</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<div class="logo-icon">
+🧁
+</div>
+
+<div>
+<h2>BakeNBrew</h2>
+<p>Pastry and DrinksS Costing System</p>
+</div>
+
+</div>
+
+<nav>
+
+<a href="home.html">
+<i class="fa-solid fa-chart-line"></i>
+Dashboard
+</a>
+
+<a href="ingredients.html">
+<i class="fa-solid fa-wheat-awn"></i>
+Ingredients
+</a>
+
+<a href="packaging.html">
+<i class="fa-solid fa-box"></i>
+Packaging
+</a>
+
+<a href="recipes.html">
+<i class="fa-solid fa-cake-candles"></i>
+Recipes
+</a>
+
+<a href="recipe-list.html">
+    <i class="fa-solid fa-book"></i>
+    Saved Recipes
+</a>
+
+<a href="calculations.html">
+<i class="fa-solid fa-calculator"></i>
+Calculations
+</a>
+
+<a href="products.html" class="active">
+<i class="fa-solid fa-cookie-bite"></i>
+Made Goods
+</a>
+
+</nav>
+
+</aside>
+
+<main class="main-content">
+
+<header class="page-header">
+
+<div>
+<h1>🍪 Made Goods</h1>
+<p>Your saved baked products and pricing records.</p>
+</div>
+
+</header>
+
+<!-- SEARCH -->
+
+<section class="search-section">
+
+<input
+type="text"
+id="productSearch"
+class="search-input"
+placeholder="Search baked goods...">
+
+</section>
+
+<!-- PRODUCT GRID -->
+
+<section>
+
+<div id="productsGrid"
+class="products-grid">
+
+<!-- JS GENERATED -->
+
+</div>
+
+</section>
+
+</main>
+
+<!-- DETAILS MODAL -->
+
+<div class="modal" id="productModal">
+
+<div class="modal-content large-modal">
+
+<div class="modal-header">
+
+<h2 id="modalProductName">
+Product Details
+</h2>
+
+<button
+id="closeProductModal"
+class="close-btn">
+
+×
+
+</button>
+
+</div>
+
+<!-- BASIC INFO -->
+
+<div class="detail-section">
+
+<h3>📋 Product Information</h3>
+
+<div class="detail-grid">
+
+<div>
+<strong>Category:</strong>
+<span id="detailCategory"></span>
+</div>
+
+<div>
+<strong>Yield:</strong>
+<span id="detailYield"></span>
+</div>
+
+<div>
+<strong>Date Created:</strong>
+<span id="detailDate"></span>
+</div>
+
+</div>
+
+</div>
+
+<!-- INGREDIENTS -->
+
+<div class="ingredients-packaging-grid">
+
+    <div class="summary-card">
+
+        <h3>🥣 Ingredients Used</h3>
+
+        <ul id="detailIngredients"></ul>
+
+    </div>
+
+    <div class="summary-card">
+
+        <h3>📦 Packaging Used</h3>
+
+        <ul id="detailPackaging"></ul>
+
+    </div>
+
+</div>
+
+<!-- EXTRA COSTSS
+
+<div class="detail-section">
+
+<h3>⚡ Additional Costs</h3>
+
+<ul id="detailExtras">
+
+</ul>
+
+</div> -->
+
+<!-- COST SUMMARY -->
+
+<div class="detail-section">
+
+<h3>💰 Cost Summary</h3>
+
+<div class="summary-grid">
+
+<div class="summary-card">
+
+<h4>Ingredients</h4>
+
+<p id="detailIngredientCost">
+₱0
+</p>
+
+</div>
+
+<div class="summary-card">
+
+<h4>Packaging</h4>
+
+<p id="detailPackagingCost">
+₱0
+</p>
+
+</div>
+
+<div class="summary-card">
+
+<h4>Extras</h4>
+
+<p id="detailExtraCost">
+₱0
+</p>
+
+</div>
+
+<div class="summary-card highlight-card">
+
+<h4>Total Cost</h4>
+
+<p id="detailTotalCost">
+₱0
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- PROFIT -->
+
+<div class="detail-section">
+
+<h3>📈 Pricing & Profit</h3>
+
+<div class="summary-grid">
+
+<div class="summary-card">
+
+<h4>Selling Price</h4>
+
+<p id="detailSellingPrice">
+₱0
+</p>
+
+</div>
+
+<div class="summary-card">
+
+<h4>Profit</h4>
+
+<p id="detailProfit">
+₱0
+</p>
+
+</div>
+
+<div class="summary-card">
+
+<h4>Margin</h4>
+
+<p id="detailMargin">
+0%
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="js/products.js"></script>
+
+</body>
+</html>

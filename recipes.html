@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BakeNBrew Cost | Recipe Builder</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<aside class="sidebar">
+
+<div class="logo">
+<div class="logo-icon">🧁</div>
+
+<div>
+<h2>BakeNBrew</h2>
+<p>Pastry and DrinksS Costing System</p>
+</div>
+</div>
+
+<nav>
+
+<a href="home.html">
+<i class="fa-solid fa-chart-line"></i>
+Dashboard
+</a>
+
+<a href="ingredients.html">
+<i class="fa-solid fa-wheat-awn"></i>
+Ingredients
+</a>
+
+<a href="packaging.html">
+<i class="fa-solid fa-box"></i>
+Packaging
+</a>
+
+<a href="recipes.html" class="active">
+<i class="fa-solid fa-cake-candles"></i>
+Recipes
+</a>
+
+<a href="recipe-list.html">
+    <i class="fa-solid fa-book"></i>
+    Saved Recipes
+</a>
+
+<a href="calculations.html">
+<i class="fa-solid fa-calculator"></i>
+Calculations
+</a>
+
+<a href="products.html">
+<i class="fa-solid fa-cookie-bite"></i>
+Made Goods
+</a>
+
+</nav>
+
+</aside>
+
+<main class="main-content">
+
+<header class="page-header">
+
+<div>
+<h1>🎂 Recipe Builder</h1>
+<p>Create and calculate your baked goods.</p>
+</div>
+
+</header>
+
+<!-- PRODUCT INFO -->
+
+<section class="dashboard-section">
+
+<h2>Product Information</h2>
+
+<div class="form-grid">
+
+<div class="form-group">
+<label>Product Name</label>
+<input type="text" id="recipeName"
+placeholder="Chocolate Cake">
+</div>
+
+<div class="form-group">
+<label>Category</label>
+<select id="recipeCategory">
+<option>Cake</option>
+<option>Cookies</option>
+<option>Brownies</option>
+<option>Bread</option>
+<option>Drinks</option>
+<option>Cupcake</option>
+<option>Other</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Yield</label>
+<input type="number" id="yieldQuantity"
+placeholder="8">
+</div>
+
+<div class="form-group">
+<label>Yield Unit</label>
+<select id="yieldUnit">
+<option>Slices</option>
+<option>Pieces</option>
+<option>Boxes</option>
+<option>Loaves</option>
+<option>Servings</option>
+</select>
+</div>
+
+</div>
+
+</section>
+
+<!-- INGREDIENTS -->
+
+<section class="dashboard-section">
+
+<div class="section-flex">
+
+<h2>🥣 Ingredients Used</h2>
+
+<button
+class="secondary-btn"
+id="addIngredientRow">
++ Ingredient
+</button>
+
+</div>
+
+<div id="ingredientsContainer">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PACKAGING -->
+
+<section class="dashboard-section">
+
+<div class="section-flex">
+
+<h2>📦 Packaging Used</h2>
+
+<button
+class="secondary-btn"
+id="addPackagingRow">
++ Packaging
+</button>
+
+</div>
+
+<div id="packagingContainer">
+
+
+
+</div>
+
+</div>
+
+</section>
+
+<!-- EXTRA COSTS -->
+
+<section class="dashboard-section">
+
+<h2>⚡ Additional Costs</h2>
+
+<div class="form-grid">
+
+<div class="form-group">
+
+<label>Labor Cost</label>
+
+<input
+type="number"
+id="laborCost"
+value="0">
+
+</div>
+
+<div class="form-group">
+
+<label>Electricity Cost</label>
+
+<input
+type="number"
+id="electricityCost"
+value="0">
+
+</div>
+
+<div class="form-group">
+
+<label>Gas Cost</label>
+
+<input
+type="number"
+id="gasCost"
+value="0">
+
+</div>
+
+<div class="form-group">
+
+<label>Miscellaneous</label>
+
+<input
+type="number"
+id="miscCost"
+value="0">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- COST PREVIEW -->
+
+<section class="dashboard-section">
+
+<h2>💰 Cost Preview</h2>
+
+<div class="summary-grid">
+
+<div class="summary-card">
+<h3>Ingredient Cost</h3>
+<p id="ingredientCostPreview">₱0.00</p>
+</div>
+
+<div class="summary-card">
+<h3>Packaging Cost</h3>
+<p id="packagingCostPreview">₱0.00</p>
+</div>
+
+<div class="summary-card">
+<h3>Additional Costs</h3>
+<p id="extraCostPreview">₱0.00</p>
+</div>
+
+<div class="summary-card highlight-card">
+<h3>Total Production Cost</h3>
+<p id="totalCostPreview">₱0.00</p>
+</div>
+
+</div>
+
+</section>
+<input
+type="hidden"
+id="editingRecipeId"
+value="">
+<!-- SAVE -->
+
+<section class="dashboard-section">
+
+<button
+class="primary-btn large-btn"
+id="saveRecipeBtn">
+
+💾 Save Recipe
+
+</button>
+
+</section>
+
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="js/recipes.js"></script>
+
+</body>
+</html>

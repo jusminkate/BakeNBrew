@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BakeNBrew Cost | Saved Recipes</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="js/supabase.js"></script>
+</head>
+
+<body>
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<div class="logo-icon">
+🧁
+</div>
+
+<div>
+<h2>BakeNBrew</h2>
+<p>Pastry and DrinksS Costing System</p>
+</div>
+
+</div>
+
+<nav>
+
+<a href="home.html">
+<i class="fa-solid fa-chart-line"></i>
+Dashboard
+</a>
+
+<a href="ingredients.html" >
+<i class="fa-solid fa-wheat-awn"></i>
+Ingredients
+</a>
+
+<a href="packaging.html">
+<i class="fa-solid fa-box"></i>
+Packaging
+</a>
+
+<a href="recipes.html">
+<i class="fa-solid fa-cake-candles"></i>
+Recipes
+</a>
+
+<a href="recipe-list.html" class="active">
+    <i class="fa-solid fa-book"></i>
+    Saved Recipes
+</a>
+
+<a href="calculations.html">
+<i class="fa-solid fa-calculator"></i>
+Calculations
+</a>
+
+<a href="products.html">
+<i class="fa-solid fa-cookie-bite"></i>
+Made Goods
+</a>
+
+</nav>
+
+</aside>
+
+<main class="main-content">
+
+<header class="page-header">
+
+<div>
+<h1>📖 Saved Recipes</h1>
+<p>Manage all saved recipes.</p>
+</div>
+
+</header>
+
+<section class="dashboard-section">
+
+<div id="recipeList" class="recipe-grid"></div>
+
+</section>
+
+</main>
+
+<script src="js/recipe-list.js"></script>
+
+</body>
+</html>

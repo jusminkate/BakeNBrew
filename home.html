@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BakeNBrew Cost | Bakery Cost Calculator</title>
+
+<link rel="manifest" href="manifest.json">
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<meta name="theme-color" content="#8B5E3C">
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<div class="logo-icon">
+🧁
+</div>
+
+<div>
+<h2>BakeNBrew</h2>
+<p>Pastry and Drinks Costing System</p>
+</div>
+
+</div>
+
+<nav>
+
+<a href="home.html" class="active">
+<i class="fa-solid fa-chart-line"></i>
+Dashboard
+</a>
+
+<a href="ingredients.html">
+<i class="fa-solid fa-wheat-awn"></i>
+Ingredients
+</a>
+
+<a href="packaging.html">
+<i class="fa-solid fa-box"></i>
+Packaging
+</a>
+
+<a href="recipes.html">
+<i class="fa-solid fa-cake-candles"></i>
+Recipes
+</a>
+
+<a href="recipe-list.html">
+    <i class="fa-solid fa-book"></i>
+    Saved Recipes
+</a>
+
+
+<a href="calculations.html">
+<i class="fa-solid fa-calculator"></i>
+Calculations
+</a>
+
+<a href="products.html">
+<i class="fa-solid fa-cookie-bite"></i>
+Made Goods
+</a>
+
+</nav>
+
+</aside>
+
+<!-- MAIN -->
+
+<main class="main-content">
+
+<header class="page-header">
+
+<div>
+<h1>🧁 Dashboard</h1>
+<p>Track your bakery costs and profits.</p>
+</div>
+
+<div style="display:flex; align-items:center; gap:10px;">
+    <span id="currentDate"></span>
+
+    <button id="logoutBtn" class="secondary-btn">
+        Logout
+    </button>
+</div>
+
+</header>
+
+<!-- STAT CARDS -->
+
+<section class="stats-grid">
+
+<div class="stat-card">
+<div class="stat-icon">🥣</div>
+<h3 id="ingredientCount">0</h3>
+<p>Total Ingredients</p>
+</div>
+
+<div class="stat-card">
+<div class="stat-icon">📦</div>
+<h3 id="packagingCount">0</h3>
+<p>Packaging Items</p>
+</div>
+
+<div class="stat-card">
+<div class="stat-icon">🎂</div>
+<h3 id="recipeCount">0</h3>
+<p>Recipes</p>
+</div>
+
+<div class="stat-card">
+<div class="stat-icon">💰</div>
+<h3 id="averageProfit">₱0</h3>
+<p>Average Profit</p>
+</div>
+
+</section>
+
+<!-- QUICK ACTIONS -->
+
+<section class="dashboard-section">
+
+<div class="section-header">
+<h2>Quick Actions</h2>
+</div>
+
+<div class="quick-actions">
+
+<a href="ingredients.html" class="action-card">
+🥣
+<span>Add Ingredient</span>
+</a>
+
+<a href="packaging.html" class="action-card">
+📦
+<span>Add Packaging</span>
+</a>
+
+<a href="recipes.html" class="action-card">
+🎂
+<span>Create Recipe</span>
+</a>
+
+<a href="calculations.html" class="action-card">
+🧮
+<span>Calculate Price</span>
+</a>
+
+</div>
+
+</section>
+
+<!-- LOW STOCK -->
+
+<section class="dashboard-section">
+
+<div class="section-header">
+<h2>Low Stock Alerts</h2>
+</div>
+
+<div class="alert-box">
+
+<ul id="lowStockList">
+
+<li>
+✨ No low-stock ingredients.
+</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<!-- RECENT RECIPES -->
+
+<section class="dashboard-section">
+
+<div class="section-header">
+<h2>Recent Recipes</h2>
+</div>
+
+<div id="recentRecipes" class="recipe-list">
+
+<div class="empty-state">
+
+🍪
+
+<p>No recipes yet.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- BUSINESS SUMMARY -->
+
+<section class="dashboard-section">
+
+<div class="section-header">
+<h2>Business Summary</h2>
+</div>
+
+<div class="summary-grid">
+
+<div class="summary-card">
+<h3>Total Recipe Cost</h3>
+<p id="totalRecipeCost">₱0</p>
+</div>
+
+<div class="summary-card">
+<h3>Total Selling Value</h3>
+<p id="totalSellingValue">₱0</p>
+</div>
+
+<div class="summary-card">
+<h3>Total Potential Profit</h3>
+<p id="totalPotentialProfit">₱0</p>
+</div>
+
+</div>
+
+</section>
+<section class="dashboard-section">
+
+  <div class="section-header">
+    <h2>📈 Profit Chart</h2>
+  </div>
+
+  <canvas id="profitChart" height="120"></canvas>
+
+</section>
+<!-- BAKING TIP -->
+
+<section class="dashboard-section">
+
+<div class="tip-card">
+
+<h2>🍰 Baking Tip of the Day</h2>
+
+<p>
+Always include packaging, electricity,
+and labor costs when pricing your products.
+Many home bakers only calculate ingredients,
+which often results in underpricing.
+</p>
+
+</div>
+
+</section>
+
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="js/auth.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/app.js"></script>
+
+
+<script>
+
+const today = new Date();
+
+document.getElementById("currentDate").innerText =
+today.toLocaleDateString("en-PH", {
+year: "numeric",
+month: "long",
+day: "numeric"
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BakeNBrew Cost | Pricing Calculator</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+<aside class="sidebar">
+
+<div class="logo">
+
+<div class="logo-icon">
+🧁
+</div>
+
+<div>
+<h2>BakeNBrew</h2>
+<p>Pastry and Drinks Costing System</p>
+</div>
+
+</div>
+
+<nav>
+
+<a href="home.html">
+<i class="fa-solid fa-chart-line"></i>
+Dashboard
+</a>
+
+<a href="ingredients.html">
+<i class="fa-solid fa-wheat-awn"></i>
+Ingredients
+</a>
+
+<a href="packaging.html">
+<i class="fa-solid fa-box"></i>
+Packaging
+</a>
+
+<a href="recipes.html">
+<i class="fa-solid fa-cake-candles"></i>
+Recipes
+</a>
+
+<a href="recipe-list.html">
+    <i class="fa-solid fa-book"></i>
+    Saved Recipes
+</a>
+
+<a href="calculations.html" class="active">
+<i class="fa-solid fa-calculator"></i>
+Calculations
+</a>
+
+<a href="products.html">
+<i class="fa-solid fa-cookie-bite"></i>
+Made Goods
+</a>
+
+</nav>
+
+</aside>
+
+<main class="main-content">
+
+<header class="page-header">
+
+<div>
+<h1>🧮 Pricing Calculator</h1>
+<p>Calculate selling price, profit, and margins.</p>
+</div>
+
+</header>
+
+<!-- SELECT PRODUCT -->
+
+<section class="dashboard-section">
+
+<h2>Select Recipe</h2>
+
+<select id="recipeSelect" class="full-width-select">
+
+<option value="">
+Choose a saved recipe
+</option>
+
+</select>
+
+</section>
+
+<!-- COST OVERVIEW -->
+
+<section class="dashboard-section">
+
+<h2>Recipe Overview</h2>
+
+<div class="summary-grid">
+
+<div class="summary-card">
+<h3>Total Cost</h3>
+<p id="recipeCost">₱0.00</p>
+</div>
+
+<div class="summary-card">
+<h3>Yield</h3>
+<p id="recipeYield">0</p>
+</div>
+
+<div class="summary-card">
+<h3>Cost Per Unit</h3>
+<p id="costPerUnit">₱0.00</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- QUICK MARKUPS -->
+
+<section class="dashboard-section">
+
+<h2>Quick Markups</h2>
+
+<div class="summary-grid">
+
+<div class="summary-card">
+<h3>30% Markup</h3>
+<p id="markup30">₱0.00</p>
+</div>
+
+<div class="summary-card">
+<h3>50% Markup</h3>
+<p id="markup50">₱0.00</p>
+</div>
+
+<div class="summary-card">
+<h3>100% Markup</h3>
+<p id="markup100">₱0.00</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- CUSTOM MARKUP -->
+
+<section class="dashboard-section">
+
+<h2>Custom Pricing</h2>
+
+<div class="form-grid">
+
+<div class="form-group">
+
+<label>Markup Percentage (%)</label>
+
+<input
+type="number"
+id="customMarkup"
+placeholder="50">
+
+</div>
+
+<div class="form-group">
+
+<label>Suggested Price</label>
+
+<input
+type="text"
+id="suggestedPrice"
+readonly>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CUSTOM SELLING PRICE -->
+
+<section class="dashboard-section">
+
+<h2>Manual Selling Price</h2>
+
+<div class="form-grid">
+
+<div class="form-group">
+
+<label>Selling Price (₱)</label>
+
+<input
+type="number"
+id="sellingPrice">
+
+</div>
+
+<div class="form-group">
+
+<label>Expected Orders</label>
+
+<input
+type="number"
+id="expectedOrders"
+value="1">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- RESULTS -->
+
+<section class="dashboard-section">
+
+<h2>Profit Analysis</h2>
+
+<div class="summary-grid">
+
+<div class="summary-card">
+<h3>Profit</h3>
+<p id="profitAmount">₱0.00</p>
+</div>
+
+<div class="summary-card">
+<h3>Profit Margin</h3>
+<p id="profitMargin">0%</p>
+</div>
+
+<div class="summary-card">
+<h3>Revenue</h3>
+<p id="revenueAmount">₱0.00</p>
+</div>
+
+<div class="summary-card highlight-card">
+<h3>Total Projected Profit</h3>
+<p id="projectedProfit">₱0.00</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- SAVE PRICE -->
+
+<section class="dashboard-section">
+
+<button
+id="savePricingBtn"
+class="primary-btn large-btn">
+
+💰 Save Pricing
+
+</button>
+
+</section>
+
+<!-- TIP -->
+
+<section class="dashboard-section">
+
+<div class="tip-card">
+
+<h2>📈 Pricing Tip</h2>
+
+<p>
+A common bakery pricing method is:
+
+Cost × 3 = Selling Price
+
+This helps cover ingredient costs,
+labor, utilities, packaging, spoilage,
+and business growth.
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase.js"></script>
+<script src="js/calculations.js"></script>
+
+</body>
+</html>

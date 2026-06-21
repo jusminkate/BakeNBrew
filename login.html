@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BakeNBrew Cost | Login</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<style>
+.auth-page{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:var(--cream);
+}
+
+.auth-card{
+    width:100%;
+    max-width:420px;
+    background:white;
+    padding:35px;
+    border-radius:24px;
+    box-shadow:var(--shadow);
+}
+
+.auth-card h1{
+    text-align:center;
+    color:var(--mocha);
+    margin-bottom:10px;
+}
+
+.auth-card p{
+    text-align:center;
+    margin-bottom:25px;
+    color:#8b8179;
+}
+
+.auth-form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.auth-form input{
+    padding:14px;
+    border:1px solid var(--border);
+    border-radius:14px;
+    font-family:'Poppins',sans-serif;
+}
+
+.auth-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin-top:10px;
+}
+
+.password-wrapper{
+    position:relative;
+}
+
+.password-wrapper input{
+    width:100%;
+    padding-right:40px;
+}
+
+#togglePassword{
+    position:absolute;
+    right:10px;
+    top:50%;
+    transform:translateY(-50%);
+    background:none;
+    border:none;
+    cursor:pointer;
+    font-size:16px;
+}
+</style>
+
+</head>
+
+<body class="auth-page">
+
+<div class="auth-card">
+
+    <h1>🧁 BakeNBrew Cost</h1>
+    <p>Pastry and Drinks Costing System</p>
+
+    <div class="auth-form">
+
+        <input type="email" id="email" placeholder="Email Address">
+
+        <div class="password-wrapper">
+            <input type="password" id="password" placeholder="Password">
+            <button type="button" id="togglePassword">👁️</button>
+        </div>
+
+        <div class="auth-buttons">
+
+            <button id="loginBtn" class="primary-btn">
+                Login
+            </button>
+
+            <button id="signupBtn" class="secondary-btn">
+                Create Account
+            </button>
+
+        </div>
+
+    </div>
+</div>
+
+<script src="js/supabase.js"></script>
+<script src="js/auth.js"></script>
+
+</body>
+</html>
