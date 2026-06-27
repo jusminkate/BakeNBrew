@@ -34,7 +34,7 @@ document.getElementById("loginBtn")?.addEventListener("click", async () => {
 
     if (error) return alert(error.message);
 
-    window.location.replace("home.html");
+    window.location.replace("index.html");
 });
 
 
@@ -83,7 +83,7 @@ async function checkUser() {
     }
 }
 
-if (window.location.pathname.includes("home.html")) {
+if (window.location.pathname.includes("index.html")) {
     checkUser();
 }
 
